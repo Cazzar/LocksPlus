@@ -6,7 +6,9 @@ import cpw.mods.fml.common.registry.GameRegistry
 import net.cazzar.mods.locks.blocks.BlockKeypad
 import net.cazzar.mods.locks.blocks.tile.TileKeypad
 import cpw.mods.fml.client.registry.{ClientRegistry, RenderingRegistry}
-import net.cazzar.mods.locks.client.render.TileKeypadRender
+import net.cazzar.mods.locks.client.render.{ItemKeypadRenderer, TileKeypadRender}
+import net.minecraftforge.client.MinecraftForgeClient
+import net.minecraft.item.{ItemStack, Item, ItemBlock}
 
 @Mod(modid = "LocksPlus", modLanguage = "scala")
 object LocksPlus {
@@ -18,6 +20,7 @@ object LocksPlus {
 
         if (e.getSide.isClient) {
             ClientRegistry.bindTileEntitySpecialRenderer(classOf[TileKeypad], new TileKeypadRender);
+            MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(block), new ItemKeypadRenderer)
         }
     }
 }
