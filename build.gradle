@@ -24,8 +24,8 @@ buildscript {
     }
 }
 
-group = 'net.cazzar.corelib'
-version = '1.1.0'
+group = 'net.cazzar.mods'
+version = '1.0.0a'
 project.ext.set('actualVersion', version)
 //noinspection GroovyUnusedAssignment
 //archivesBaseName = 'CazzarCoreLib'
