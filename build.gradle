@@ -30,10 +30,8 @@ project.ext.set('actualVersion', version)
 //noinspection GroovyUnusedAssignment
 //archivesBaseName = 'CazzarCoreLib'
 
-for (f in file('gradle').listFiles()) {
-    if (f.isFile() && f.name.endsWith(".gradle"))
-        apply from: f
-}
+fileTree('gradle').include('*.gradle').collect().sort().each { apply from: it }
+
 
 apply plugin: 'grgit'
 
